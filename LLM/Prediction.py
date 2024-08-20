@@ -17,10 +17,10 @@ converted_texts = []
 # 遍历列表中的每个对话
 for text in texts:
 
-    prompt = f"以下内容是专业的心理专家评价的自杀热线中来电者的当前情况，请你以心理专家的角度来评判这个来电者是否会自杀，输出结果只需要输出0或者1，" \
-             f"0代表不自杀，1代表自杀。\n这段话的内容为：{text}"
+    prompt = f"以下内容是专业的心理专家评价的自杀热线中来电者的当前情况，请你以心理专家的角度来评判这个来电者是否会自杀，输出结果输出0～16之间的自然数，" \
+             f"0～7表示中低自杀风险，8～16表示高自杀风险。\n这段话的内容为：{text}"
     response = openai.ChatCompletion.create(
-        model="text-davinci-003",  # 使用适合聊天的模型
+        model="GPT-4 Turbo",  # 使用适合聊天的模型
         messages=[
             {"role": "system", "content": "This is a conversation with a hotline caller."},
             {"role": "user", "content": text}
