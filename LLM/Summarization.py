@@ -31,13 +31,12 @@ docx_files = docx_files[18:]
 for docx_file in docx_files:
     print(docx_file)
 
-    # 切分文件
     file_path = docx_file
     loader = Docx2txtLoader(file_path)
     documents = loader.load()
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
     texts = text_splitter.split_documents(documents)
-    # paragraphs = [texts[i:i + 2000] for i in range(0, len(texts), 2000)]
+    
     neirong = texts[0].page_content
     paragraphs = [neirong[i:i + 500] for i in range(0, len(neirong), 500)]
 
@@ -64,10 +63,9 @@ for docx_file in docx_files:
                 responses.append(final_summary)
 
     base_filename = os.path.basename(docx_file)
-# Split the base filename using '.' as the separator and get the first part
     filenum = base_filename.split('.')[0]
 
-    print(filenum)  # This will print '202004026696'
+    print(filenum) 
     output_file = f"output_new/{filenum}.txt"
     with open(output_file, "w", encoding="utf-8") as f:
         for response in responses:
