@@ -7,7 +7,7 @@ import os
 import glob
 
 # 大模型调用
-glm_model_path = '/home/user416/cyn/llm/chatglm/ChatGLM2-6B/model'
+glm_model_path = 'ChatGLM2-6B/model'
 glm_embeddings = AutoTokenizer.from_pretrained(glm_model_path, trust_remote_code=True)
 glm_llm = AutoModel.from_pretrained(glm_model_path, trust_remote_code=True)
 glm_llm = glm_llm.eval()
