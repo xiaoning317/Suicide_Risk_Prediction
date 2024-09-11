@@ -9,7 +9,7 @@ file_path ='../chatglm+chatgpt.csv'
 df = pd.read_csv(file_path)
 
 # 假设对话内容存储在第 8 列（索引从 0 开始，所以是 7）
-texts = df.iloc[:,7].tolist()
+texts = df.iloc[].tolist()
 
 # 初始化一个列表来存储转换后的对话
 converted_texts = []
