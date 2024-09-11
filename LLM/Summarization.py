@@ -24,7 +24,7 @@ final_define='''当前内容都已输出完毕，请你以患者的身份，以�
 
 '''
 
-directory_path = '/home/user416/guanghui/data/huilongguan_audio/texts'
+directory_path = 'texts'
 docx_files = glob.glob(os.path.join(directory_path, '*.docx'))
 docx_files = docx_files[18:]
 
